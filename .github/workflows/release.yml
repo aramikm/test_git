@@ -36,5 +36,5 @@ jobs:
         
         - name: Rename Packages
           run: |
-            foreach ($file in (*.jar)) { new_file="${file/.jar/-windows.jar}"; mv "$file" "$new_file"; }
+            Get-ChildItem *.jar| Rename-Item -NewName { $_.Name -replace '\.jar','-windows.jar' }
             ls
