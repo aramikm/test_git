@@ -34,5 +34,5 @@ jobs:
         - name: print event
           run: |
             echo ${{github.event}}
-            echo ${{github.event.name}}
+            echo ${{github.event_path}}
             echo ${{github.event_name}}
