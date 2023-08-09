@@ -25,16 +25,16 @@ env:
 
 jobs:
     build-artifacts:
-    name: test
-    runs-on: windows-latest
-    steps:
-      - name: setup files
-        run: |
-          touch test1.sources.jar
-          touch test1.jar
-          ls
-      
-      - name: Rename Packages
-        run: |
-          for file in *.jar; do mv "$file" "${file/.jar/-${{matrix.os}}.jar}"; done
-          ls
+      name: test
+      runs-on: windows-latest
+      steps:
+        - name: setup files
+          run: |
+            touch test1.sources.jar
+            touch test1.jar
+            ls
+        
+        - name: Rename Packages
+          run: |
+            for file in *.jar; do mv "$file" "${file/.jar/-${{matrix.os}}.jar}"; done
+            ls
