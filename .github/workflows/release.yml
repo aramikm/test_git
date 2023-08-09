@@ -6,7 +6,7 @@ concurrency:
 on:
   push:
     tags:
-      - "v[0-9]+.[0-9]+.[0-9]+_java" # ex. v1.0.0+java
+      - "v[0-9]+.[0-9]+.[0-9]+_java" # ex. v1.0.0_java
 
   workflow_dispatch:
     inputs:
@@ -23,15 +23,16 @@ env:
 jobs:
     build-artifacts:
       name: test
-      runs-on: windows-latest
+      runs-on: ubuntu-latest
       steps:
         - name: setup files
           run: |
             touch test1.sources.jar
             touch test1.jar
             ls
-        
-        - name: Rename Packages
+
+        - name: print event
           run: |
-            Get-ChildItem *.jar| Rename-Item -NewName { $_.Name -replace '\.jar','-windows.jar' }
-            ls
+            echo ${{github.event}}
+            echo ${{github.event.name}}
+            echo ${{github.event_name}}
