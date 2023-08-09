@@ -36,5 +36,5 @@ jobs:
         
         - name: Rename Packages
           run: |
-            for file in (*.jar); do (new_file="${file/.jar/-windows.jar}"; mv "$file" "$new_file";)
+            foreach( $file in (*.jar)) { (new_file="${file/.jar/-windows.jar}"; mv "$file" "$new_file"; }
             ls
