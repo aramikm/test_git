@@ -5,8 +5,8 @@ concurrency:
   cancel-in-progress: true
 on:
   push:
-    # tags:
-    #   - "v[0-9]+.[0-9]+.[0-9]+_java" # ex. v1.0.0_java
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+\+java' # ex. v1.0.0_java
 
   workflow_dispatch:
     inputs:
